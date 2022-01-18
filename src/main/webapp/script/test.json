@@ -1,0 +1,56 @@
+[{
+        "id": 40,
+        "reference": "Ref1",
+        "dateAchat": "déc. 3, 2021",
+        "prix": 800
+    }, {
+        "id": 41,
+        "reference": "Ref1",
+        "dateAchat": "déc. 3, 2021",
+        "prix": 8000
+    }, {
+        "id": 42,
+        "reference": "Ref2",
+        "dateAchat": "déc. 3, 2021",
+        "prix": 500
+    }, {
+        "id": 43,
+        "reference": "a",
+        "dateAchat": "déc. 4, 2021",
+        "prix": 855
+    }, {
+        "id": 44,
+        "reference": "yyy",
+        "dateAchat": "déc. 2, 2021",
+        "prix": 5200
+    }, {
+        "id": 45,
+        "reference": "gg",
+        "dateAchat": "déc. 4, 2021",
+        "prix": 41
+    }, {
+        "id": 46,
+        "reference": "dd",
+        "dateAchat": "déc. 4, 2021",
+        "prix": 45
+    }, {
+        "id": 49,
+        "reference": "ZE44",
+        "dateAchat": "déc. 8, 2021",
+        "prix": 8000
+    }, {
+        "id": 50,
+        "reference": "ZE44",
+        "dateAchat": "déc. 8, 2021",
+        "prix": 8000
+    }, {
+        "id": 51,
+        "reference": "ee778",
+        "dateAchat": "déc. 7, 2021",
+        "prix": 4000
+    }, {
+        "id": 52,
+        "reference": "nn",
+        "dateAchat": "déc. 7, 2021",
+        "prix": 800
+    }]
