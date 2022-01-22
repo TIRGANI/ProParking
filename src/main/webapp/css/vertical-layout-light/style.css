@@ -25468,7 +25468,13 @@ div.tagsinput span.tag a {
     width: 100%;
   }
 }
-
+.lof{
+	background-image: url('../images/TT.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	font-family: 'Numans', sans-serif;
+}
 @media (min-width: 992px) {
   .sidebar-absolute .page-body-wrapper {
     position: relative;
@@ -25515,7 +25521,7 @@ div.tagsinput span.tag a {
 
 @media (min-width: 992px) {
   .boxed-layout .container-scroller {
-    background: #c6c8ca;
+    background:#c6c8ca;
     padding: 0 calc((100% - 1200px) / 2);
   }
   .boxed-layout .navbar.fixed-top {

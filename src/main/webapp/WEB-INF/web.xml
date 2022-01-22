@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" id="WebApp_ID" version="2.5">
-  <display-name>TIRGANI parking V00</display-name>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" id="WebApp_ID" version="2.4">
+  <display-name>TIRGANI_parking_V00</display-name>
   <welcome-file-list>
     <welcome-file>Login.jsp</welcome-file>
   </welcome-file-list>
@@ -28,8 +28,19 @@
     <servlet-name>LoginServelett</servlet-name>
     <servlet-class>controler.LoginServelett</servlet-class>
   </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>EtageServelett</display-name>
+  	<servlet-name>EtageServelett</servlet-name>
+  	<servlet-class>controler.EtageServelett</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>LoginServelett</servlet-name>
     <url-pattern>/LoginServelett</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EtageServelett</servlet-name>
+  	<url-pattern>/EtageServelett</url-pattern>
   </servlet-mapping>
 </web-app>

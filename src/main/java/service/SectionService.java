@@ -16,10 +16,11 @@ public class SectionService implements IDao<Section> {
 
     @Override
     public boolean create(Section o) {
-        String sql = "insert into section values (null, ?)";
+        String sql = "insert into section values (null, ?,?)";
         try {
             PreparedStatement ps = Connexion.getInstane().getConnection().prepareStatement(sql);
             ps.setString(1, o.getCode());
+            ps.setInt(2, o.getEtage());
          
             if (ps.executeUpdate() == 1) {
                 return true;
@@ -50,12 +51,13 @@ public class SectionService implements IDao<Section> {
     @Override
     public boolean update(Section o) {
     	//System.out.println(o.toString());
-        String sql = "update section set code  = ?  where id  = ?";
+        String sql = "update section set code  = ?,idetage=?  where id  = ?";
         try {
             PreparedStatement ps = Connexion.getInstane().getConnection().prepareStatement(sql);
             ps.setString(1, o.getCode());
+            ps.setInt(2, o.getEtage());
           
-            ps.setInt(2, o.getId());
+            ps.setInt(3, o.getId());
             if (ps.executeUpdate() == 1) {
                 return true;
             }
@@ -75,7 +77,7 @@ public class SectionService implements IDao<Section> {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Section(rs.getInt("id"), rs.getString("code"));
+                return new Section(rs.getInt("id"), rs.getString("code"),rs.getInt("idetage"));
             }
 
         } catch (SQLException e) {
@@ -88,12 +90,12 @@ public class SectionService implements IDao<Section> {
     public List<Section> findAll() {
         List<Section> sections = new ArrayList<Section>();
 
-        String sql = "select * from section";
+        String sql = "select * from section order by idetage";
         try {
             PreparedStatement ps = Connexion.getInstane().getConnection().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-            	sections.add(new Section(rs.getInt("id"), rs.getString("code")));
+            	sections.add(new Section(rs.getInt("id"), rs.getString("code"),rs.getInt("idetage")));
             }
 
         } catch (SQLException e) {

@@ -2,10 +2,11 @@ package controler;
 
 import java.io.IOException;
 
-import org.apache.jasper.tagplugins.jstl.core.Out;
-
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.Section;
 
@@ -27,7 +28,8 @@ public class TestServlette extends HttpServlet {
 		if (op != null) {
 			if (op.equals("ajouter")) {
 				String code = request.getParameter("code").toString();
-				Section s = new Section(code);
+				int idetage =Integer.parseInt(request.getParameter("etage"));
+				Section s = new Section(code,idetage);
 				//System.out.println(sc.findAll().toString());
 				int cpt = 0;
 				for (Section cc : sc.findAll()) {
@@ -39,7 +41,7 @@ public class TestServlette extends HttpServlet {
 					if (sc.create(s)) {
 
 						try {
-							response.sendRedirect("/TIRGANI_parking_V00/pages/ui-features/section.jsp");
+							response.sendRedirect("/pages/ui-features/section.jsp");
 						} catch (IOException e) {
 
 							e.printStackTrace();
@@ -60,7 +62,7 @@ public class TestServlette extends HttpServlet {
 				int id = Integer.parseInt(request.getParameter("id"));
 				sc.delete(sc.findById(id));
 				try {
-					response.sendRedirect("/TIRGANI_parking_V00/pages/ui-features/section.jsp");
+					response.sendRedirect("/pages/ui-features/section.jsp");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -70,7 +72,7 @@ public class TestServlette extends HttpServlet {
 				int id = Integer.parseInt(request.getParameter("id"));
 				Section s = sc.findById(id);
 				try {
-					response.sendRedirect("/TIRGANI_parking_V00/pages/ui-features/section.jsp?op=ip&id=" + s.getId()
+					response.sendRedirect("/pages/ui-features/section.jsp?op=ip&id=" + s.getId()
 							+ "&code=" + s.getCode());
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -85,7 +87,7 @@ public class TestServlette extends HttpServlet {
 				session.invalidate();
 	            session=null;
 				try {
-					response.sendRedirect("/TIRGANI_parking_V00/Login.jsp");
+					response.sendRedirect("/Login.jsp");
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -97,12 +99,14 @@ public class TestServlette extends HttpServlet {
 					if (request.getParameter("id") != null && !request.getParameter("id").equals("")) {
 						int id = Integer.parseInt(request.getParameter("id"));
 						String code = request.getParameter("code");
+						int idetage =Integer.parseInt(request.getParameter("etage"));
 						Section sf = sc.findById(id);
 						sf.setCode(code);
+						sf.setEtage(idetage);
 						//System.out.println(sf.toString());
 						if (sc.update(sf)) {
 							try {
-								response.sendRedirect("/TIRGANI_parking_V00/pages/ui-features/section.jsp");
+								response.sendRedirect("/pages/ui-features/section.jsp");
 							} catch (IOException e) {
 
 								e.printStackTrace();
